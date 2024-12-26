@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.astonintensiv4.databinding.ActivityMainBinding
 import com.example.astonintensiv4.task_1.TaskOneActivity
-import com.example.astonintensiv4.task_2.TaskTwoActivity
+import com.example.astonintensiv4.task_2.presentation.activity.TaskTwoActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

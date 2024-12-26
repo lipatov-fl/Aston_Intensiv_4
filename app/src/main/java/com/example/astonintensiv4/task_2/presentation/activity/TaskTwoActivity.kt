@@ -1,23 +1,24 @@
-package com.example.astonintensiv4.task_2
+package com.example.astonintensiv4.task_2.presentation.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.astonintensiv4.R
-import com.example.astonintensiv4.databinding.ActivityTaskOneBinding
 import com.example.astonintensiv4.databinding.ActivityTaskTwoBinding
-import com.example.astonintensiv4.task_1.TaskOneActivity
+import com.example.astonintensiv4.task_2.presentation.fragments.ListOfUsersFragment
 
 class TaskTwoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskTwoBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTaskTwoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, ListOfUsersFragment())
+            .commit()
     }
 
     companion object {

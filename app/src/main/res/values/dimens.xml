@@ -2,4 +2,11 @@
 <resources>
     <dimen name="padding_app">16dp</dimen>
     <dimen name="margin_vertical_button">20dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_text_size">16sp</dimen>
+    <dimen name="card_textview_margin_bottom">5dp</dimen>
+    <dimen name="card_image_width">90dp</dimen>
+    <dimen name="card_image_height">90dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
 </resources>
