@@ -1,8 +1,10 @@
 package com.example.astonintensiv4.task_2.presentation.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astonintensiv4.task_2.data.UserRepositoryImpl
@@ -10,7 +12,9 @@ import com.example.astonintensiv4.task_2.domain.model.User
 import com.example.astonintensiv4.task_2.domain.usecase.EditUserUseCase
 import com.example.astonintensiv4.task_2.domain.usecase.GetAllUserListUseCase
 import com.example.astonintensiv4.task_2.domain.usecase.GetAllUserUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UserViewModel : ViewModel() {
 
@@ -20,7 +24,10 @@ class UserViewModel : ViewModel() {
     private val editUserUseCase = EditUserUseCase(repository)
 
     private val _userList = MutableLiveData<List<User>>()
-    val userList: LiveData<List<User>> get() = _userList
+    private val userList: LiveData<List<User>> get() = _userList
+
+    private val _shouldNotifyUserUpdated = MutableLiveData<Boolean>()
+    val shouldNotifyUserUpdated: LiveData<Boolean> get() = _shouldNotifyUserUpdated
 
     private val _selectedUser = MutableLiveData<User?>()
     val selectedUser: LiveData<User?> get() = _selectedUser
@@ -31,13 +38,16 @@ class UserViewModel : ViewModel() {
     private val _shouldClose = MutableLiveData<Unit>()
     val shouldClose: LiveData<Unit> get() = _shouldClose
 
-    fun getUserList() {
+    fun fetchUserList() {
         viewModelScope.launch {
-            val userListLiveData = getUserListUseCase.invoke()
-            userListLiveData.observeForever { userList ->
+            getUserListUseCase.invoke().observeForever { userList ->
                 _userList.postValue(userList)
             }
         }
+    }
+
+    fun observeUserList(owner: LifecycleOwner, observer: Observer<List<User>>) {
+        userList.observe(owner, observer)
     }
 
     fun fetchUser(userId: Int) {
@@ -53,9 +63,12 @@ class UserViewModel : ViewModel() {
     fun editUser(user: User) {
         viewModelScope.launch {
             Log.d("UserViewModel", "Editing user: $user")
-            editUserUseCase.invoke(user)
+            withContext(Dispatchers.IO) {
+                editUserUseCase.invoke(user)
+            }
             _selectedUser.postValue(user)
             _shouldClose.postValue(Unit)
+            _shouldNotifyUserUpdated.postValue(true)
         }
     }
 

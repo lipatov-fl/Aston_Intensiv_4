@@ -70,6 +70,7 @@ class EditUserFragment : Fragment() {
         }
 
         viewModel.shouldClose.observe(viewLifecycleOwner) {
+            Log.d("EditUserFragment", "Closing fragment and sending result")
             val resultBundle = Bundle().apply {
                 putBoolean(EDIT, true)
             }
@@ -113,6 +114,7 @@ class EditUserFragment : Fragment() {
                         phoneInput
                     )
                 )
+                viewModel.shouldNotifyUserUpdated
             }
         }
 
