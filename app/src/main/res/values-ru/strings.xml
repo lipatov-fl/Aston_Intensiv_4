@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AstonIntensiv4</string>
+    <string name="task_1_button_text">Задание 1</string>
+    <string name="task_2_button_text">Задание 2</string>
+    <string name="fragment_a_text_view">Фрагмент А</string>
+    <string name="fragment_b_text_view">Фрагмент Б</string>
+    <string name="fragment_c_text_view">Фрагмент Ц</string>
+    <string name="fragment_d_text_view">Фрагмент Д</string>
+    <string name="transmitted_text">Привет фрагмент Ц</string>
+    <string name="user_photo_description">Фото пользователя</string>
+    <string name="user_name_text">Имя</string>
+    <string name="user_surname_text">Фамилия</string>
+    <string name="user_phone_text">Телефон</string>
+    <string name="edit_name_text">Укажите имя</string>
+    <string name="edit_surname_text">Укажите фамилию</string>
+    <string name="edit_phone_text">Телефон</string>
+    <string name="edit_save_button_text">Сохранить</string>
+</resources>

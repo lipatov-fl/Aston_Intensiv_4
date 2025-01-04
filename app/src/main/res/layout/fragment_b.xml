@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".task_1.BFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/task_1_button"
-        style="@style/CustomButtonStyle"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/task_1_button_text" />
+        android:layout_gravity="center"
+        android:text="@string/fragment_b_text_view" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/task_2_button"
+        android:id="@+id/fragment_c_button"
         style="@style/CustomButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/margin_vertical_button"
-        android:text="@string/task_2_button_text" />
+        android:text="@string/fragment_c_text_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragment_a_button"
+        style="@style/CustomButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_vertical_button"
+        android:text="@string/fragment_a_text_view" />
+
 </LinearLayout>

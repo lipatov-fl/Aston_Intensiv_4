@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/user_photo"
+        android:layout_width="@dimen/card_image_width"
+        android:layout_height="@dimen/card_image_height"
+        android:layout_gravity="center"
+        android:contentDescription="@string/user_photo_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_1" />
+
+    <EditText
+        android:id="@+id/edit_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/margin_vertical_button"
+        android:autofillHints="name"
+        android:hint="@string/edit_name_text"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_vertical_button"
+        android:autofillHints="name"
+        android:hint="@string/edit_surname_text"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="phone"
+        android:hint="@string/edit_phone_text"
+        android:inputType="phone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_save"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/edit_save_button_text" />
+</LinearLayout>
